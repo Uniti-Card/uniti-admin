@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const UpdateCategoryForm = ({ preloadedValues }) => {
   delete preloadedValues.image;
   const classes = useStyles();
-  const types = ["none", "contact", "file", "phone", "url", "email"];
+  const types = ["contact", "file", "phone", "url", "email", "username"];
   const dispatch = useDispatch();
 
   const { error, loading } = useSelector((state) => state.platform);
