@@ -14,11 +14,12 @@ import SelectInput from "components/Input/SelectInput";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
-  vCardTitle: yup.string(),
   headline: yup.string(),
   category: yup.string(),
   type: yup.string(),
-  position: yup.string(),
+  webBaseURL: yup.string(),
+  androidBaseURL: yup.string(),
+  iOSBaseURL: yup.string(),
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const UpdateCategoryForm = ({ preloadedValues }) => {
   delete preloadedValues.image;
   const classes = useStyles();
-  const types = ["none", "contact", "file", "phone", "url"];
+  const types = ["none", "contact", "file", "phone", "url", "email"];
   const dispatch = useDispatch();
 
   const { error, loading } = useSelector((state) => state.platform);
@@ -105,17 +106,6 @@ const UpdateCategoryForm = ({ preloadedValues }) => {
         <Grid item xs={4}>
           <Input
             ref={register}
-            id="vCardTitle"
-            type="text"
-            label="vCardTitle"
-            name="vCardTitle"
-            error={!!errors.vCardTitle}
-            helperText={errors?.vCardTitle?.message}
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <Input
-            ref={register}
             id="webBaseURL"
             type="text"
             label="Web BaseURL"
@@ -144,17 +134,6 @@ const UpdateCategoryForm = ({ preloadedValues }) => {
             name="androidBaseURL"
             error={!!errors.androidBaseURL}
             helperText={errors?.androidBaseURL?.message}
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <Input
-            ref={register}
-            id="packageName"
-            type="text"
-            label="Package Name"
-            name="packageName"
-            error={!!errors.packageName}
-            helperText={errors?.packageName?.message}
           />
         </Grid>
 
