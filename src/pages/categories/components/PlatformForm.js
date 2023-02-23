@@ -16,7 +16,7 @@ const schema = yup.object().shape({
   title: yup.string().required(),
   headline: yup.string(),
   category: yup.string(),
-  type: yup.string(),
+  type: yup.string().required(),
   webBaseURL: yup.string(),
   androidBaseURL: yup.string(),
   iOSBaseURL: yup.string(),
