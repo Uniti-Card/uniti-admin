@@ -14,6 +14,7 @@ import SelectInput from "components/Input/SelectInput";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
+  vCardTitle: yup.string(),
   headline: yup.string(),
   category: yup.string(),
   type: yup.string(),
@@ -99,6 +100,17 @@ const UpdateCategoryForm = ({ preloadedValues }) => {
             name="headline"
             error={!!errors.headline}
             helperText={errors?.headline?.message}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <Input
+            ref={register}
+            id="vCardTitle"
+            type="text"
+            label="vCardTitle"
+            name="vCardTitle"
+            error={!!errors.vCardTitle}
+            helperText={errors?.vCardTitle?.message}
           />
         </Grid>
         <Grid item xs={4}>
